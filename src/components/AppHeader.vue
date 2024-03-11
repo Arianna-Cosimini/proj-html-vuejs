@@ -6,36 +6,69 @@ export default {
 
     name: 'AppHeader',
 
-    components:{
+    components: {
         AppNavBar,
     },
 
-    data(){
-        return{
-            links:[
+
+    data() {
+        return {
+            activeSlideIndex: 0,
+
+
+            links: [
                 {
-                    link:"About",
+                    link: "About",
                 },
                 {
-                    link:"Services",
+                    link: "Services",
                 },
                 {
-                    link:"yachts",
+                    link: "yachts",
                 },
                 {
-                    link:"reservations",
+                    link: "reservations",
                 },
                 {
-                    link:"blog",
+                    link: "blog",
                 },
                 {
-                    link:"contacts",
+                    link: "contacts",
+                },
+            ],
+
+            slides: [
+                {
+                    image: '../../public/img/bg1-1.jpg',
+                    title: "QuickWind",
+                    text: "all kinds of boats, yacht charters and sailing destinations for hobbyist yachtsmen and women!",
+                    button: "Learn More",
+                },
+                {
+                    image: '../../public/img/bg2.jpg',
+                    title: "QuickWind",
+                    text: "all kinds of boats, yacht charters and sailing destinations for hobbyist yachtsmen and women!",
+                    button: "Learn More",
+                },
+                {
+                    image: '../../public/img/bg3.jpg',
+                    title: "QuickWind",
+                    text: "all kinds of boats, yacht charters and sailing destinations for hobbyist yachtsmen and women!",
+                    button: "Learn More",
                 },
             ]
         }
+    },
+
+
+    methods: {
+        changeSlide(index) {
+            console.log(index)
+            this.activeSlideIndex = index
+        },
     }
 
-  
+
 
 
 
@@ -45,13 +78,19 @@ export default {
 
 <template>
 
-<div id="hero">
-    <img src="../../public/img/bg1-1.jpg" alt="">
-    <div class="container">
-        <AppNavBar :menuLinks="links"></AppNavBar>
+    <div id="hero"  v-for="(currentImage, index) in slides" @click="changeSlide(index)">
+        <img :src="currentImage.image" alt="">
 
+        <AppNavBar :menuLinks="links"></AppNavBar>
+        <div class="container">
+            <div class="hero-text" >
+                <h1 class="display-1 fw-bold">{{ currentImage.title }}</h1>
+                <p>{{ currentImage.text }}</p>
+                <button>{{ currentImage.button }}</button>
+            </div>
+
+        </div>
     </div>
-</div>
 
 </template>
 
@@ -59,13 +98,32 @@ export default {
 @use '../styles/mixins' as *;
 @use '../styles/variables' as *;
 
-#hero{
+#hero {
     position: relative;
+
+    img {
+        object-fit: cover;
+    }
 }
+
 .container {
     @include styleContainer;
 
-    
+    .hero-text {
+        position: absolute;
+        top: 40%;
+
+        padding: 0 100px;
+        color: white;
+
+        h1 {
+            font-size: 94px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
 
 }
 </style>

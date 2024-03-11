@@ -18,21 +18,24 @@ export default {
 <template>
 
     <nav>
-        <div id="navbar" class="d-flex justify-content-between align-items-center">
-            <div class="img-nav">
-                <img src="../../public/img/logo.png" alt="">
-            </div>
+        <div class="container">
 
-            <div id="menu-links" class="">
-                <ul class="d-flex list-unstyled ">
-                    <li v-for="link in menuLinks" :key="link.link">
-                        <a :href="'#' + link.link">{{ link.link }}</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="search">
-                <img src="../../public/img/image.svg" alt="">
+            <div id="navbar" class="d-flex justify-content-between align-items-center">
+                <div class="img-nav">
+                    <img src="../../public/img/logo.png" alt="">
+                </div>
+    
+                <div id="menu-links" class="">
+                    <ul class="d-flex list-unstyled ">
+                        <li v-for="link in menuLinks" :key="link.link">
+                            <a :href="'#' + link.link">{{ link.link }}</a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="search">
+                    <img src="../../public/img/image.svg" alt="">
+                </div>
             </div>
         </div>
 
@@ -46,7 +49,8 @@ export default {
 
 nav {
     position: absolute;
-    width: 85%;
+    width: 100%;
+    left: 0;
     top: 35px;
 
 
