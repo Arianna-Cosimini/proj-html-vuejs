@@ -78,19 +78,26 @@ export default {
 
 <template>
 
-    <div id="hero"  v-for="(currentImage, index) in slides" @click="changeSlide(index)">
-        <img :src="currentImage.image" alt="">
-
-        <AppNavBar :menuLinks="links"></AppNavBar>
-        <div class="container">
-            <div class="hero-text" >
-                <h1 class="display-1 fw-bold">{{ currentImage.title }}</h1>
-                <p>{{ currentImage.text }}</p>
-                <button>{{ currentImage.button }}</button>
+    <div class="carousel">
+        <div class="slides" v-for="(currentImage, index) in slides" :key="index"
+            :class="{ 'active': index === activeSlideIndex }">
+            <AppNavBar :menuLinks="links"></AppNavBar>
+            <img :src="currentImage.image" alt="">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="display-1 fw-bold">{{ currentImage.title }}</h1>
+                    <p>{{ currentImage.text }}</p>
+                    <button class="btn btn-outline-light fw-semibold">{{ currentImage.button }}</button>
+                </div>
             </div>
-
+        </div>
+        <div class="score-carousel">
+            <span v-for="(currentImage, index) in slides" :key="index" @click="changeSlide(index)"
+                :class="{ 'active': index === activeSlideIndex }"></span>
         </div>
     </div>
+
+
 
 </template>
 
@@ -98,32 +105,56 @@ export default {
 @use '../styles/mixins' as *;
 @use '../styles/variables' as *;
 
-#hero {
+.carousel {
+    height: 980px;
     position: relative;
-
-    img {
-        object-fit: cover;
-    }
 }
 
-.container {
-    @include styleContainer;
+.slides {
+    display: none;
+}
 
-    .hero-text {
-        position: absolute;
-        top: 40%;
+.slides.active {
+    display: block;
+}
 
-        padding: 0 100px;
-        color: white;
+.score-carousel {
+    position: absolute;
+    bottom: 10px;
+    left: 50%; 
+    transform: translateX(-50%);
 
-        h1 {
-            font-size: 94px;
-        }
+    display: flex;
+    gap: 50px;
+}
 
-        p {
-            font-size: 20px;
-        }
+.score-carousel span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.score-carousel span.active {
+    background-color:$PrimaryColor;
+}
+
+.hero-text {
+    position: absolute;
+    top: 40%;
+
+    padding: 0 100px;
+    color: white;
+
+    h1 {
+        font-size: 94px;
     }
 
+    p {
+        font-size: 20px;
+    }
 }
 </style>
