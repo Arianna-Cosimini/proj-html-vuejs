@@ -20,4 +20,6 @@ export default {
 <AppTopBar></AppTopBar>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+
+</style>
