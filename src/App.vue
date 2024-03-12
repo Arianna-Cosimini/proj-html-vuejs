@@ -5,7 +5,7 @@ import AppHeader from './components/AppHeader.vue';
 import AppHistory from './components/AppHistory.vue';
 import AppService from './components/AppService.vue';
 import AppYacht from './components/AppYacht.vue';
-
+import AppEvents from './components/AppEvents.vue';
 
 export default {
 
@@ -15,6 +15,7 @@ export default {
     AppHistory,
     AppService,
     AppYacht,
+    AppEvents,
   }
 
 
@@ -32,6 +33,7 @@ export default {
 <AppHistory></AppHistory>
 <AppService></AppService>
 <AppYacht></AppYacht>
+<AppEvents></AppEvents>
 
 
 </template>

@@ -29,6 +29,12 @@ export default {
                 {
                     image:"../../public/img/services5.jpg"
                 },
+                {
+                    image:"../../public/img/services6.jpg"
+                },
+                {
+                    image:"../../public/img/services7.jpg"
+                },
             ]
         }
     },
@@ -122,7 +128,7 @@ export default {
 
 
 .yacht-item {
-    width: calc(100% / 3);
+    width: calc(100% / 4);
     margin-bottom: 80px;
 
 }
