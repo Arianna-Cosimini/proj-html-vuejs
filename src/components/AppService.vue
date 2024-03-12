@@ -39,7 +39,8 @@ export default {
                     title:"Corporate Events",
                     text:"When it comes to organizing a corporate yacht charter of a Fortune 500 scale for a big crew o people - we will be able to make t flawless. We will exceed your expectations!"
                 },
-            ]
+            ],
+            
         }
     },
 

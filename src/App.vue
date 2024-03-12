@@ -1,11 +1,10 @@
 <script>
 
 import AppTopBar from './components/AppTopBar.vue';
-
 import AppHeader from './components/AppHeader.vue';
 import AppHistory from './components/AppHistory.vue';
-
 import AppService from './components/AppService.vue';
+import AppYacht from './components/AppYacht.vue';
 
 
 export default {
@@ -15,6 +14,7 @@ export default {
     AppHeader,
     AppHistory,
     AppService,
+    AppYacht,
   }
 
 
@@ -31,6 +31,7 @@ export default {
 <AppHeader></AppHeader>
 <AppHistory></AppHistory>
 <AppService></AppService>
+<AppYacht></AppYacht>
 
 
 </template>
@@ -39,7 +40,10 @@ export default {
 
 img{
   width: 100%;
-  height: 100%;
 }
+
+
+
+
 
 </style>
