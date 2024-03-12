@@ -4,7 +4,7 @@
 
 export default {
 
-    name: 'AppHistory',
+    name: 'ServiceItems',
 
 
 
@@ -19,6 +19,10 @@ export default {
 
     },
 
+    props: {
+        CardItem: Array,
+    }
+
 
 
 
@@ -29,41 +33,28 @@ export default {
 
 <template>
 
-    <div id="history">
-        <img src="../../public/img/bg4.jpg" alt="">
+    <div id="service-item">
+        <div id="content-service-item" class="text-center">
+            <h3>Services</h3>
 
-        <div class="history-content  w-50 ">
+            <div class="score">
+                <div class="score-text"></div>
+            </div>
 
-            <div class="history-text">
-                <div class="title">
-                    <h2>Our History</h2>
+
+            <div id="cards-item-service" class="d-flex flex-wrap ">
+                <div v-for="items in CardItem" class="card-item px-4">
+                    <div id="icon-card" class="d-flex align-items-center ">
+                        <div class="icon">
+                            <i :class="items.icon"></i>
+                        </div>
+                        <h4>{{ items.title }}</h4>
+                    </div>
+
+                    <div class="text-card text-start">
+                        <p>{{ items.text }}</p>
+                    </div>
                 </div>
-
-                <div class="score">
-                    <div class="score-text"></div>
-                </div>
-
-                <div class="description">
-
-                    <p>
-                        <strong>Founded by a worldwide-famous yacht racer Alfred Tannenstrick,
-                            since its inception back in 1977, this company has been a welcoming harbor for all
-                            yachting and sailing enthusiasts, from all across the US!
-                        </strong>
-                    </p>
-    
-                    <p>We offer a real variety of professional services, from the simple yachts
-                        chartering and corporate events, all the way to yacht repairs, upgrades and modifications and
-                        maintenance checkups.
-                    </p>
-    
-                    <p>With decades of professional experience in renting, repairing and transporting
-                        just all kinds of yachts and boats under our belt - we can assure you that we are
-                        your best choice!
-                    </p>
-                </div>
-
-                <button class="btn btn-outline-light">Read More</button>
             </div>
         </div>
     </div>
@@ -76,60 +67,74 @@ export default {
 @use '../styles/mixins' as *;
 @use '../styles/variables' as *;
 
-
-#history {
-    position: relative;
-}
-
-.history-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    padding-right:120px ;
+#service-item {
 
 
-    .score {
-        background-color: #c1d3df;
-        border-radius: 15px;
-        height: 1px;
+    background-size: contain;
+    background-position: bottom;
+    background-image: url('../../public/img/bg6.jpg');
 
-        position: relative;
+    #content-service-item {
+        @include styleContainer;
 
-        margin: 60px 0;
+        padding: 115px 0;
 
-        .score-text {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            width: 100px;
-            height: 1px;
-
-            border-radius: 15px;
-            background-color: $PrimaryColor;
+        h3 {
+            font-size: 35px;
+            font-weight: 700;
         }
     }
+}
 
-    button {
+
+.score {
+    background-color: #c1d3df;
+    border-radius: 15px;
+    height: 1px;
+
+    position: relative;
+
+    margin: 60px 0;
+
+    .score-text {
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        width: 100px;
+        height: 1px;
+
+        border-radius: 15px;
         background-color: $PrimaryColor;
-        border-color: $PrimaryColor;
-
-        padding: 10px 15px;
-
-        font-weight: 700;
     }
+}
 
-    p {
-        margin-bottom: 30px;
-    }
+#icon-card {
+    gap:30px;
+    margin-bottom: 30px;
+    
+}
 
-    .history-text {
-        margin-top: 120px;
-    }
+.card-item {
+    width: calc(100% / 3);
+    margin-bottom: 80px;
 
-    p:not(:has(strong)){
-        color: #6e7077;
+
+    .icon {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $PrimaryColor;
+
+        i {
+            color: white;
+            font-size: 50px;
+        }
     }
 }
 </style>
