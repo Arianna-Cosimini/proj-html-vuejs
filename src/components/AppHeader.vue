@@ -112,7 +112,6 @@ export default {
 
 
 .carousel {
-    height: 980px;
     position: relative;
 }
 
