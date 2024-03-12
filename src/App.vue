@@ -6,6 +6,7 @@ import AppHistory from './components/AppHistory.vue';
 import AppService from './components/AppService.vue';
 import AppYacht from './components/AppYacht.vue';
 import AppEvents from './components/AppEvents.vue';
+import AppBlog from './components/AppBlog.vue'
 
 export default {
 
@@ -16,6 +17,7 @@ export default {
     AppService,
     AppYacht,
     AppEvents,
+    AppBlog,
   }
 
 
@@ -34,6 +36,7 @@ export default {
 <AppService></AppService>
 <AppYacht></AppYacht>
 <AppEvents></AppEvents>
+<AppBlog></AppBlog>
 
 
 </template>
