@@ -83,13 +83,17 @@ export default {
             :class="{ 'active': index === activeSlideIndex }">
             <AppNavBar :menuLinks="links"></AppNavBar>
             <img :src="currentImage.image" alt="">
-            <div class="container">
-                <div class="hero-text">
-                    <h1 class="display-1 fw-bold">{{ currentImage.title }}</h1>
-                    <p>{{ currentImage.text }}</p>
-                    <button class="btn btn-outline-light fw-semibold">{{ currentImage.button }}</button>
+            
+                <div class="carousel-content">
+                    <div class="hero-text w-50">
+                        <h1 class="display-1 fw-bold">{{ currentImage.title }}</h1>
+                        <p>{{ currentImage.text }}</p>
+                        <button class="btn btn-outline-light fw-semibold">{{ currentImage.button }}</button>
+                    </div>
+                   
+
                 </div>
-            </div>
+           
         </div>
         <div class="score-carousel">
             <span v-for="(currentImage, index) in slides" :key="index" @click="changeSlide(index)"
@@ -104,6 +108,8 @@ export default {
 <style lang="scss">
 @use '../styles/mixins' as *;
 @use '../styles/variables' as *;
+
+
 
 .carousel {
     height: 980px;
@@ -120,8 +126,8 @@ export default {
 
 .score-carousel {
     position: absolute;
-    bottom: 10px;
-    left: 50%; 
+    bottom: 50px;
+    left: 50%;
     transform: translateX(-50%);
 
     display: flex;
@@ -139,15 +145,23 @@ export default {
 }
 
 .score-carousel span.active {
-    background-color:$PrimaryColor;
+    background-color: $PrimaryColor;
+    transform: scale(1.5)
 }
 
-.hero-text {
+.carousel-content{
+
+    @include styleContainer;
+
     position: absolute;
     top: 40%;
-
+    
+    display: flex;
+    justify-content: center;
     padding: 0 100px;
     color: white;
+}
+.hero-text {
 
     h1 {
         font-size: 94px;
