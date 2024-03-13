@@ -171,9 +171,16 @@ export default {
     }
 }
 
+
 button {
-    padding: 10px 15px;
+    @include styleButtonLight;
+
+    &:hover {
+        @include styleButtonLightHover;
+
+    }
 }
+
 
 #cards-yacht {}
 </style>

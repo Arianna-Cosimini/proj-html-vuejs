@@ -5,6 +5,21 @@ export default {
 
     name: 'AppTopBar',
 
+    data() {
+        return {
+            icons: [
+                {
+                    icon: "fa-brands fa-facebook-f",
+                },
+                {
+                    icon: "fa-brands fa-twitter",
+                },
+                {
+                    icon: "fa-brands fa-instagram",
+                },
+            ]
+        }
+    },
 
 
 }
@@ -28,25 +43,12 @@ export default {
                 </div>
 
                 <div id="socials" class="d-flex">
-                    <div id="social-container" class="d-flex align-items-center justify-content-center">
-                        <i class="fa-brands fa-facebook-f">
+                    <div v-for="currentIcon in icons" id="social-container"
+                        class="d-flex align-items-center justify-content-center">
+                        <i :class="currentIcon.icon">
                             <a href="#"></a>
                         </i>
                     </div>
-
-                    <div id="social-container" class="d-flex align-items-center justify-content-center">
-                        <i class="fa-brands fa-twitter">
-                            <a href="#"></a>
-                        </i>
-                    </div>
-
-                    <div id="social-container" class="d-flex align-items-center justify-content-center">
-                        <i class="fa-brands fa-instagram">
-                            <a href="#"></a>
-                        </i>
-                    </div>
-
-
                 </div>
             </div>
 
@@ -93,14 +95,20 @@ export default {
             gap: 20px;
             color: white;
 
-            #social-container{
+            #social-container {
                 width: 20px;
                 height: 20px;
                 border-radius: 50%;
                 background-color: #6a6c71;
 
-                i{
+                &:hover{
+                        background-color: $PrimaryColor;
+                    }
+
+                i {
                     font-size: 12px;
+
+                   
                 }
             }
 

@@ -83,17 +83,17 @@ export default {
             :class="{ 'active': index === activeSlideIndex }">
             <AppNavBar :menuLinks="links"></AppNavBar>
             <img :src="currentImage.image" alt="">
-            
-                <div class="carousel-content">
-                    <div class="hero-text w-50">
-                        <h1 class="display-1 fw-bold">{{ currentImage.title }}</h1>
-                        <p>{{ currentImage.text }}</p>
-                        <button class="btn btn-outline-light fw-semibold">{{ currentImage.button }}</button>
-                    </div>
-                   
 
+            <div class="carousel-content">
+                <div class="hero-text w-50">
+                    <h1 class="display-1 fw-bold">{{ currentImage.title }}</h1>
+                    <p>{{ currentImage.text }}</p>
+                    <button class="btn btn-outline-light">{{ currentImage.button }}</button>
                 </div>
-           
+
+
+            </div>
+
         </div>
         <div class="score-carousel">
             <span v-for="(currentImage, index) in slides" :key="index" @click="changeSlide(index)"
@@ -148,18 +148,29 @@ export default {
     transform: scale(1.5)
 }
 
-.carousel-content{
+.carousel-content {
 
     @include styleContainer;
 
     position: absolute;
     top: 40%;
-    
+
     display: flex;
     justify-content: center;
     padding: 0 100px;
     color: white;
+
+    
+    button {
+        @include styleButtonLight;
+    
+        &:hover {
+            @include styleButtonLightHover;
+    
+        }
+    }
 }
+
 .hero-text {
 
     h1 {
@@ -170,4 +181,5 @@ export default {
         font-size: 20px;
     }
 }
+
 </style>

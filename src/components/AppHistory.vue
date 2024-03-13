@@ -51,12 +51,12 @@ export default {
                             yachting and sailing enthusiasts, from all across the US!
                         </strong>
                     </p>
-    
+
                     <p>We offer a real variety of professional services, from the simple yachts
                         chartering and corporate events, all the way to yacht repairs, upgrades and modifications and
                         maintenance checkups.
                     </p>
-    
+
                     <p>With decades of professional experience in renting, repairing and transporting
                         just all kinds of yachts and boats under our belt - we can assure you that we are
                         your best choice!
@@ -86,7 +86,7 @@ export default {
     top: 0;
     right: 0;
 
-    padding-right:120px ;
+    padding-right: 120px;
 
 
     .score {
@@ -112,12 +112,11 @@ export default {
     }
 
     button {
-        background-color: $PrimaryColor;
-        border-color: $PrimaryColor;
+        @include styleButton;
 
-        padding: 10px 15px;
-
-        font-weight: 700;
+        &:hover {
+            @include styleButtonHover;
+        }
     }
 
     p {
@@ -128,7 +127,7 @@ export default {
         margin-top: 120px;
     }
 
-    p:not(:has(strong)){
+    p:not(:has(strong)) {
         color: #6e7077;
     }
 }

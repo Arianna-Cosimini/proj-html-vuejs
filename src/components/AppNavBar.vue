@@ -63,6 +63,10 @@ nav {
             color: white;
             text-transform: uppercase;
             font-weight: 600;
+
+            &:hover{
+                color: $PrimaryColor;
+            }
         }
     }
 

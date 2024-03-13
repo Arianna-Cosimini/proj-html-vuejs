@@ -109,13 +109,11 @@ export default {
 
     .service-button {
         button {
-            background-color: $PrimaryColor;
-            border-color: $PrimaryColor;
+            @include styleButton;
 
-            color: white;
-            padding: 10px 15px;
-
-            font-weight: 700;
+            &:hover {
+                @include styleButtonHover;
+            }
         }
     }
 }

@@ -111,8 +111,11 @@ export default {
 
 
         button {
-            background-color: $PrimaryColor;
-            padding: 10px 15px;
+            @include styleButton;
+
+            &:hover {
+                @include styleButtonHover;
+            }
         }
     }
 
