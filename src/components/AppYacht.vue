@@ -10,30 +10,30 @@ export default {
 
     data() {
         return {
-            yachts:[
+            yachts: [
                 {
-                    image:"../../public/img/services-1.jpg"
+                    image: "../../public/img/services-1.jpg"
                 },
                 {
-                    image:"../../public/img/services1.jpg"
+                    image: "../../public/img/services1.jpg"
                 },
                 {
-                    image:"../../public/img/services2.jpg"
+                    image: "../../public/img/services2.jpg"
                 },
                 {
-                    image:"../../public/img/services3.jpg"
+                    image: "../../public/img/services3.jpg"
                 },
                 {
-                    image:"../../public/img/services4.jpg"
+                    image: "../../public/img/services4.jpg"
                 },
                 {
-                    image:"../../public/img/services5.jpg"
+                    image: "../../public/img/services5.jpg"
                 },
                 {
-                    image:"../../public/img/services6.jpg"
+                    image: "../../public/img/services6.jpg"
                 },
                 {
-                    image:"../../public/img/services7.jpg"
+                    image: "../../public/img/services7.jpg"
                 },
             ]
         }
@@ -44,7 +44,7 @@ export default {
 
     },
 
-    
+
 
 
 
@@ -67,8 +67,12 @@ export default {
 
             <div id="cards-yacht" class="d-flex flex-wrap ">
                 <div v-for="yacht in yachts" class="yacht-item px-4">
-                    <div id="img-card" >
+                    <div id="img-card">
                         <img :src="yacht.image" alt="" class=" rounded">
+                    </div>
+                    <div id="hover">
+                        <i class="fa-solid fa-anchor"></i>
+                        <strong>Express</strong>
                     </div>
                 </div>
             </div>
@@ -85,7 +89,7 @@ export default {
 @use '../styles/mixins' as *;
 @use '../styles/variables' as *;
 
-#yachts{
+#yachts {
 
     background-color: $PrimaryColor;
 
@@ -131,11 +135,45 @@ export default {
     width: calc(100% / 4);
     margin-bottom: 80px;
 
+    position: relative;
+
+    #hover {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .fa-solid {
+            color: $PrimaryColor;
+
+            font-size: 50px;
+            margin-bottom: 50px;
+        }
+    }
+
+    &:hover {
+        img {
+            filter: grayscale(1.5);
+
+        }
+
+        #hover {
+            display: block;
+            display: flex;
+            flex-direction: column;
+
+            strong {
+                text-transform: uppercase;
+                color: white;
+            }
+        }
+    }
 }
 
-button{
+button {
     padding: 10px 15px;
 }
 
-
+#cards-yacht {}
 </style>
