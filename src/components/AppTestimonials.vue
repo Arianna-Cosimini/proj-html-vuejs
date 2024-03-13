@@ -11,6 +11,8 @@ export default {
     data() {
         return {
 
+            activeSlideIndex: 0,
+
             testimonials: [
                 {
                     image: "../../public/img/person0-p0a17bbqv6696rzdb2ly3jl0kdng6od3fj7vti5wi8.jpg",
@@ -33,8 +35,11 @@ export default {
 
 
     methods: {
-
-    },
+        changeSlide(index) {
+            console.log(index)
+            this.activeSlideIndex = index
+        },
+    }
 
 
 
@@ -55,17 +60,25 @@ export default {
                 <div class="score-text"></div>
             </div>
 
+            <div class="testimonial-carousel">
 
-            <div v-for="currentTestimonial in testimonials" id="feedback"
-                class="text-start mx-5 d-flex align-items-center gap-5 pe-5">
-                <div class="img-testimonial">
-                    <img :src="currentTestimonial.image" alt="">
+                <div v-for="(currentTestimonial, index) in testimonials" id="feedback" :key="index"
+                    :class="{ 'active': index === activeSlideIndex }"
+                    class="text-start mx-5 pe-5">
+                    <div class="img-testimonial">
+                        <img :src="currentTestimonial.image" alt="">
+                    </div>
+    
+                    <div class="text-testimonial">
+                        <p>{{ currentTestimonial.text }}</p>
+                        <span>{{ currentTestimonial.author }}</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="text-testimonial">
-                    <p>{{ currentTestimonial.text }}</p>
-                    <span>{{ currentTestimonial.author }}</span>
-                </div>
+            <div class="score-carousel">
+                <span v-for="(currentTestimonial, index) in testimonials" :key="index" @click="changeSlide(index)"
+                    :class="{ 'active': index === activeSlideIndex }"></span>
             </div>
         </div>
 
@@ -75,11 +88,12 @@ export default {
 
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../styles/mixins' as *;
 @use '../styles/variables' as *;
 
 #testimonials {
+    position: relative;
 
 
     background-image: url('../../public/img/bg8.jpg');
@@ -110,55 +124,68 @@ export default {
         }
     }
 
-    #feedback {
-
-        padding: 35px 25px;
-        background-color: rgba(92, 117, 147, 0.668);
-
-        color: white;
-
-        p {
-            margin-bottom: 40px;
-
-            &::before {
-                content: '\f10e';
-                font-family: 'Font Awesome';
-                /* Assicurati di avere caricato il font che contiene questo carattere */
-                display: inline-block;
-                font-size: 24px;
-                /* Imposta la dimensione desiderata per l'icona */
-                color: #000;
-            }
-        }
-
-        span {
-            font-weight: 700;
-        }
-
-    }
-
 }
 
 
-.score {
-    background-color: #c1d3df;
-    border-radius: 15px;
-    height: 1px;
 
-    position: relative;
+#feedback {
+    
 
-    margin: 60px 0;
+    display: none;
 
-    .score-text {
-        position: absolute;
-        top: 0;
-        left: 50%;
+    padding: 35px 25px;
+    background-color: rgba(92, 117, 147, 0.668);
 
-        width: 100px;
-        height: 1px;
+    color: white;
 
-        border-radius: 15px;
-        background-color: $PrimaryColor;
+    &.active{
+        display: block;
+        display: flex;
+        align-items: center;
+        gap: 70px;
     }
+    
+    p {
+        margin-bottom: 40px;
+    
+        &::before {
+            content: '\f10e';
+            font-family: 'Font Awesome';
+           
+    
+            font-size: 24px;
+            color: #000;
+        }
+    }
+    
+    span {
+        font-weight: 700;
+    }
+}
+
+
+.score-carousel {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 50px;
+}
+
+.score-carousel span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.score-carousel span.active {
+    background-color: $PrimaryColor;
+    transform: scale(1.5)
 }
 </style>
