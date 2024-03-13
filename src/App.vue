@@ -8,6 +8,8 @@ import AppYacht from './components/AppYacht.vue';
 import AppEvents from './components/AppEvents.vue';
 import AppBlog from './components/AppBlog.vue'
 import AppTestimonials from './components/AppTestimonials.vue'
+import AppFooter from './components/AppFooter.vue'
+
 export default {
 
   components: {
@@ -19,7 +21,31 @@ export default {
     AppEvents,
     AppBlog,
     AppTestimonials,
-  }
+    AppFooter,
+  },
+
+  data() {
+    return {
+      footerLinksList: [
+                {
+                    title: 'part-1',
+                    links: [
+                        { text: 'yachts', url: '#' },
+                        { text: 'services', url: '#' },
+                        { text: 'reservations', url: '#' }
+                    ]
+                },
+                {
+                    title: 'part-2',
+                    links: [
+                        { text: 'blog', url: '#' },
+                        { text: 'privacy policy', url: '#' },
+                        { text: 'terms of use', url: '#' }
+                    ]
+                }
+            ]
+    }
+  },
 
 
 
@@ -39,7 +65,7 @@ export default {
 <AppEvents></AppEvents>
 <AppBlog></AppBlog>
 <AppTestimonials></AppTestimonials>
-
+<AppFooter :footerLinks="footerLinksList"></AppFooter>
 
 </template>
 
