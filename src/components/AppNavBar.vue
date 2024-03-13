@@ -48,6 +48,8 @@ export default {
 @use '../styles/variables' as *;
 
 nav {
+    font-family: "Poppins", sans-serif;
+    
     position: absolute;
     width: 100%;
     left: 0;

@@ -14,6 +14,7 @@ export default {
     data() {
         return {
             activeSlideIndex: 0,
+            timer:null,
 
 
             links: [
@@ -66,6 +67,17 @@ export default {
             console.log(index)
             this.activeSlideIndex = index
         },
+
+        startTimer() {
+            this.timer = setInterval(() => {
+                
+                this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
+            }, 3000); 
+        },
+    },
+
+    mounted(){
+        this.startTimer();
     }
 
 
@@ -112,6 +124,7 @@ export default {
 
 
 .carousel {
+    font-family: "Poppins", sans-serif;
     position: relative;
 }
 
@@ -160,13 +173,13 @@ export default {
     padding: 0 100px;
     color: white;
 
-    
+
     button {
         @include styleButtonLight;
-    
+
         &:hover {
             @include styleButtonLightHover;
-    
+
         }
     }
 }
@@ -179,7 +192,7 @@ export default {
 
     p {
         font-size: 20px;
+        margin-bottom: 45px;
     }
 }
-
 </style>

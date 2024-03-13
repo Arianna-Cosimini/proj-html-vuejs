@@ -90,6 +90,8 @@ export default {
 @use '../styles/variables' as *;
 
 #service {
+    font-family: "Poppins", sans-serif;
+    
     position: relative;
 }
 

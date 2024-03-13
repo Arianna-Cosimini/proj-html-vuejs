@@ -93,6 +93,9 @@ export default {
 @use '../styles/variables' as *;
 
 #testimonials {
+
+    font-family: "Poppins", sans-serif;
+    
     position: relative;
 
 
@@ -148,15 +151,17 @@ export default {
     p {
         margin-bottom: 40px;
     
-        &::before {
-            content: '\f10e';
-            font-family: 'Font Awesome';
+       
+        } 
+        
+    //     &::before {
+    //         content: '\f10e';
+    //         font-family: 'Font Awesome';
            
     
-            font-size: 24px;
-            color: #000;
-        }
-    }
+    //         font-size: 24px;
+    //         color: #000;
+    // }
     
     span {
         font-weight: 700;

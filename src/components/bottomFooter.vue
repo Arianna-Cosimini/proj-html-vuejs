@@ -64,6 +64,8 @@ export default {
 
 
 #bottom-footer {
+    font-family: "Poppins", sans-serif;
+    
     background-color: #222627;
     padding: 30px 0;
 }

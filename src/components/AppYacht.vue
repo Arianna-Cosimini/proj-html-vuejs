@@ -90,6 +90,7 @@ export default {
 @use '../styles/variables' as *;
 
 #yachts {
+    font-family: "Poppins", sans-serif;
 
     background-color: $PrimaryColor;
 
@@ -147,7 +148,7 @@ export default {
         .fa-solid {
             color: $PrimaryColor;
 
-            font-size: 50px;
+            font-size: 75px;
             margin-bottom: 50px;
         }
     }
@@ -164,7 +165,8 @@ export default {
             flex-direction: column;
 
             strong {
-                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 20px;
                 color: white;
             }
         }
@@ -182,5 +184,5 @@ button {
 }
 
 
-#cards-yacht {}
+
 </style>

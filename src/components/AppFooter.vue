@@ -35,7 +35,7 @@ export default {
         <div id="content-footer">
             <div class="footer-logo">
                 <img src="../../public/img/logo (1).png" alt="">
-                <p>Yacht rentas for people who love sailing across the seas... </p>
+                <p>Yacht rentas for people who love <br> sailing across the seas... </p>
             </div>
 
             <div id="footer-links" class="d-flex">
@@ -64,6 +64,7 @@ export default {
 @use '../styles/variables' as *;
 
 footer {
+    font-family: "Poppins", sans-serif;
     background-color: #f5f5f5;
     padding: 140px 0;
 }

@@ -55,6 +55,7 @@ export default {
 @use '../styles/variables' as *;
 
 #event {
+    font-family: "Poppins", sans-serif;
 
     min-height: 780px;
     // padding-left: 200px;

@@ -63,6 +63,8 @@ export default {
 
 #top-bar {
     padding: 10px 0;
+
+    font-family: "Poppins", sans-serif;
 }
 
 .container {

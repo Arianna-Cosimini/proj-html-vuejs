@@ -86,7 +86,7 @@ export default {
 @use '../styles/variables' as *;
 
 #article {
-
+    font-family: "Poppins", sans-serif;
 
     background-color: #fff;
 

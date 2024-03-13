@@ -68,7 +68,7 @@ export default {
 @use '../styles/variables' as *;
 
 #service-item {
-
+    font-family: "Poppins", sans-serif;
 
     background-size: contain;
     background-position: bottom;

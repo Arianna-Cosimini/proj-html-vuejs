@@ -79,6 +79,7 @@ export default {
 
 #history {
     position: relative;
+    font-family: "Poppins", sans-serif;
 }
 
 .history-content {
@@ -87,6 +88,10 @@ export default {
     right: 0;
 
     padding-right: 120px;
+
+    h2{
+        font-weight: 700;
+    }
 
 
     .score {
