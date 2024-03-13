@@ -7,7 +7,7 @@ import AppService from './components/AppService.vue';
 import AppYacht from './components/AppYacht.vue';
 import AppEvents from './components/AppEvents.vue';
 import AppBlog from './components/AppBlog.vue'
-
+import AppTestimonials from './components/AppTestimonials.vue'
 export default {
 
   components: {
@@ -18,6 +18,7 @@ export default {
     AppYacht,
     AppEvents,
     AppBlog,
+    AppTestimonials,
   }
 
 
@@ -37,6 +38,7 @@ export default {
 <AppYacht></AppYacht>
 <AppEvents></AppEvents>
 <AppBlog></AppBlog>
+<AppTestimonials></AppTestimonials>
 
 
 </template>
